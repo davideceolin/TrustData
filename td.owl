@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#"
+     xml:base="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata">
+        <owl:imports rdf:resource="http://schema.rdfs.org/all"/>
+        <owl:imports rdf:resource="http://www.owl-ontologies.com/RO.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#collectedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#collectedBy">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#collectedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#collectedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#CollectionAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#criterionComputedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#criterionComputedBy">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#ComputationAlgorithm"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasContext -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasContext">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Context"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasPossibleValueRange -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasPossibleValueRange">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#PossibleValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasRole -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasRole">
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasRole"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Role"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasRole"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustActionCriterion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustActionCriterion">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustAttitudeCriterion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustAttitudeCriterion">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAttitudeObject"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustAttitudePossibleValue -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustAttitudePossibleValue">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#PossibleValue"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAttitudeValue"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustAttitudeSource -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustAttitudeSource">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAttitudeObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Trustor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustAttitudeTarget -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustAttitudeTarget">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAttitudeObject"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Trustee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustAttitudeValueCriterion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustAttitudeValueCriterion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAttitudeValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustSource -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustSource">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Trustor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustTarget -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustTarget">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Trustee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustValue -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasTrustValue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustActionValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasWarranty -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasWarranty">
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasWarranty"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Warranty"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#hasWarranty"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#previousTrustAction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#previousTrustAction">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustTimestamp -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustTimestamp">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#criterionDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#criterionDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#criterionName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#criterionName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#currentTrustValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#currentTrustValue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#possibleValuesOrderingFunction -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#possibleValuesOrderingFunction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#PossibleValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/Agent -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/terms/Agent">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Agent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.owl-ontologies.com/RO.owl#CollectingAlgorithm -->
+
+    <rdf:Description rdf:about="http://www.owl-ontologies.com/RO.owl#CollectingAlgorithm">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#CollectionAlgorithm"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.owl-ontologies.com/RO.owl#ComputationAlgorithm -->
+
+    <rdf:Description rdf:about="http://www.owl-ontologies.com/RO.owl#ComputationAlgorithm">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#ComputationAlgorithm"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.owl-ontologies.com/RO.owl#criterion -->
+
+    <rdf:Description rdf:about="http://www.owl-ontologies.com/RO.owl#criterion">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Agent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Agent">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Algorithm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Algorithm">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Intangible"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Assessment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Assessment">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Intangible"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#CollectionAlgorithm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#CollectionAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#ComputationAlgorithm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#ComputationAlgorithm">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RO.owl#QualityAttribute"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Context -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Context">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Criterion">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Intangible"/>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/RO.owl#QualityAttribute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#PossibleValue -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#PossibleValue">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Intangible"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Role -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Role">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Intangible"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAction">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Action"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustActionValue -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustActionValue">
+        <rdfs:subClassOf rdf:resource="http://schema.org/StructuredValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAttitudeObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAttitudeObject">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Intangible"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Assessment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAttitudeValue -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustAttitudeValue">
+        <rdfs:subClassOf rdf:resource="http://schema.org/StructuredValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustRating -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#TrustRating">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Rating"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Assessment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Trustee -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Trustee">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Trustor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Trustor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Warranty -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dceolin/ontologies/2015/6/trustdata#Warranty">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Intangible"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
