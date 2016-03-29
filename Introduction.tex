@@ -1,20 +1,27 @@
 \section{Introduction}
-Software maintenance makes up approximately 40\% to 70\% of the total development costs of a software system \cite{grubb2003software}.
-Maintainability of systems is thus an important cost factor and companies across all industries are interested in developing well maintainable software systems and in improving or maintaining the maintainability of existing systems.
-SIG assists companies in this process by assessing the quality of their software systems, giving advice about possible improvements and monitoring of quality over time.
-Maintainability is one of the main assessment criteria and is determined based on an ISO/IEC 25010 certified model using static code analysis \cite{heitlager2007practical}.
+The maintainance of software is an important cost factor for organizations across all industries, making up approximately 40\% to 70\% of the total development costs of a software system~\cite{grubb2003software}.
+Furthermore, research on the evolution of software has shown that recurring effort is needed to keep operational software functionally relevant and technically up-to-date~\cite{lehman1980programs}.  
+Hence maintainability, the ``the degree of effectiveness and efficiency with which a product or system can be modified to improve it, correct it or adapt it to changes in environment, and in requirements''~\cite{iso25010}, is considered a key characteristic of software.
 
-The respective organizations are interested in the current state, but also in the potential future development of their system.
-\textit{How easy will it be to improve?} \textit{How likely is it to fall below a certain quality level?} Knowing future risks or potentials can help to utilize potentials and counteract negative trends in an early stage.
-Experience of SIG's consultants with comparable projects and information about the system's current state helps them to answer those questions. 
+The {ISO 25010} definition of software quality characteristics, in particular maintainability, has given rise to measurement models that use properties of the source code comprising software systems.
+One such measurement model, the SIG Maintainability Model~\cite{sig-maintainability-model}, which was first described by  et. al in 2007~\cite{heitlager2007practical}, is currently in operational use by the Software Improvement Group\footnote{\url{http://www.sig.eu}}, a software consultancy based in Amsterdam, the Netherlands.
+This model is capable of automatically determining a maintainability rating given a software system's source code and a (proprietary) benchmark database of previous measurements~\cite{alves2010deriving}.
+The resulting maintainability ratings are expressed on a scale of 1 to 5 `stars', where a 3-star rating is calibrated to reflect a market-average maintainability.
+The operational application of this model for a period of approximately 10 years has produced a significant set of data describing the evolution of maintainability of many industrial software systems.
 
-However, manual assessment is time-consuming and the precise quantification of likelihoods is difficult.
-Our aim is to support the assessment by quantifying the likelihood for improvement and deterioration, based on the history of comparable systems.
-We will use a set of historic data from about 1500 software systems, group comparable systems and analyze how their quality changed over time.
+These data allow for the exploration of some questions regarding maintainability evolution, which we approach from the perspective of building a benchmark against which software systems can be compared.
+In particular it is important to determine the base (change) rates of maintainability, i.e., the rates of change observed in the (benchmark) population prior to taking into account distinctive features, such as system size or age.
+Knowing such base rates is necessary for the accurate interpretation of software measurement results~\cite{bruntink2015towards}.
 
-The rest of this paper is structured as follows.
-Section~\ref{sec:related} introduces related work.
-Our hypotheses are introduced in Section~\ref{sec:ProblemStatement}, while our analyses are described in Section~\ref{sec:analysis}, and Section~\ref{sec:conclusion} concludes and outlines future work directions.
+Concretely, in this paper we will discuss the following questions:
+\begin{itemize}
+\item \textit{What is the base rate of maintainability change?}
+\item \textit{Given that maintainability is known, do we observe different rates of change?}
+\item \textit{What other features of software determine the rates of maintainability change?}
+\item \textit{How could a benchmark of maintainability evolution be constructed?}
+\end{itemize}
+
+To answer these questions we first describe the process of data collection in Section~\ref{sec:DataCollection}, followed by an exploratory data analysis in Section~\ref{sec:analysis}. Section~\ref{sec:Discussion} discusses the data analysis results from the perspective of the questions listed above. Related work is reflected in Section~\ref{sec:related}. Finally, Section~\ref{sec:conclusion} concludes and discussed opportunities for future work.
 
 %%% Local Variables:
 %%% mode: latex
