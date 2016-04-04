@@ -1,6 +1,51 @@
 \section{Data Collection}
 \label{sec:DataCollection}
 
+\subsection{Context}
+
+The basis for our benchmark is maintainability data collected for a large sample of projects by the SIG as part of their Software Monitoring \cite{kuipers2004portfoliomonitoring}.
+This service consists of two parts: standardized analyses of the maintainability of the source code, and customized advice to reduce project risks.
+
+For the first part of the service the source code of a software project is analyzed by the tooling of SIG on a regular (usually weekly) basis.
+The input of this tooling is a snapshot of the source code of the software project on a certain time; the output is a database containing facts about the system in the form of software metrics.
+This data is made available to both the consultancy team inside SIG as well as the development team of the project in a two-stage process.
+After an initial analysis the data is stored in an acceptance environment in which sanity checks are performed before the data is put into a production environment.
+One of the sanity checks is related to changes in the volume of the system, making sure that large changes in volume are always inspected manually. 
+
+In the second part of the service this software metric data extracted from the source code is augmented by other data-resources and analyzed by the consultancy team to determine the current risks of the software project and formulate possible mitigation actions.
+The results of the analyses are first validated with key-personnel of the client, after which the results of this process are presented to the client in reporting sessions, which normally take place on a monthly or quarterly basis. 
+
+The important thing to note here is that the results of the analyses, as well as the data collection process, are validated on a regular basis with the persons developing and managing the software project.
+Because of this, anomalies in the source code or the configuration of the tooling are detected and handled in a timely manner.
+In addition, note that all of these projects are monitored because there is an interest in the quality of the software.
+
+\subsection{Process}
+
+As explained above, the analyses of source code follows a standardized process.
+The first step in this process is the creation of the initial configuration for the analyses tooling.
+This configuration specifies core aspects of the software project such as the technologies used and the main components. 
+
+In addition, for each technology the configuration specifies which parts of the source code are dedicated to testing, which parts of the source code are generated, and which parts of the source code consist of external libraries not maintained by the development team.
+Stripping out these categories of code leaves only the code that is maintained by the development team and is part of the running system, i.e., the \emph{production code} \cite{alves2011categories}. 
+
+To identify these different categories the consultant creating the configuration uses the guidelines outlined in the SIG/T\"UViT Evaluation Criteria Trusted Product Maintainability~\cite{sig-maintainability-model} as a basis.
+These guidelines allow the inclusion of, amongst others, source code files, generated code undergoing manual modifications, and data schemas, while explicitly excluding artifacts such as data files, binary
+files, and documentation from the measurement scope. 
+
+After creating the initial configuration the monitoring of the source code is a largely automated, two-phased process.
+In the first phase the analyses is run and the results are stored in an acceptance environment.
+Automated sanity checks are run in this environment to check for unusual changes in the received source code, amongst others based on large differences in the volume of the code for a specific technology or the addition of new technologies. 
+
+If all sanity checks pass, the data is moved from the acceptance environment to the production environment.
+When one of the sanity checks fails, the Monitor Control Center (MCC) is alerted.
+This control center is staffed with (at least) one consultant which investigates the causes of the failed sanity check, and contacts the development team at the client if needed.
+Based on the cause of the failure, the delivered snapshot can, for example, be rejected or the configuration can be adapted before the values of the analyses are placed in the production environment. 
+
+In addition, the results of the analyses are stored in a data-warehouse called the Software Analysis Warehouse (SAW).
+The SAW contains the software metrics for each software project for each snapshot of the source code received from the client.
+Note that the storage takes place after the automated sanity checks, which means that rudimentary validation has already taken place.
+However, during the manual validation or analyses of the data small changes can be made to the scope, for example to include a library initially marked as ``not maintained by the team'' because changes have been made to this source code.
+These changes in configuration are taken into account when analyzing the next snapshot of the system, but are typically not applied retrospectively.  
 
 %%% Local Variables:
 %%% mode: latex
