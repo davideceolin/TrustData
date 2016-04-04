@@ -1,6 +1,6 @@
 \section{Data Set Description}
 \label{sec:datasetdescription}
-The data set we had access to consists of snapshots of 1695 systems. Figure \ref{fig:industries} shows from which industries the systems in our data set are coming. The most dominant group is government systems, followed by banking and logistic systems. The data set is not equally distributed across industries, which has to be taken into account for generalization of the results.
+This paper will use data from the SAW, which allows us to analyze data from  in total 1695 different systems and more than 50000 snapshots. The data set contains production systems across various industries. Figure \ref{fig:industries} gives an overview about the distribution of systems across industry sectors. Government systems form a very dominant group, which should be taken into account before generalizing the results.
 
 \begin{figure}
 \centering
@@ -17,7 +17,7 @@ Each system is further subdivided into components and each component into files 
 
 When looking only a system-level metrics, our data-set contains still a large number of different metrics, in total over 1200 different metrics are represented. Figure \ref{fig:metric_occurance} shows the occurrences of metrics in the data-set. Most of the metrics are not usable for our purposes since they only occur a few times. To be able to get data with an acceptable amount of missing values to use with machine learning methods, we focused on extracting the 150 most commonly occurring metrics in the data-set.
 
-\begin{figure}[!htbf]
+\begin{figure}[!htb]
 \begin{minipage}{.45\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth, height=0.75\linewidth]{figs/metric_occ.png}
